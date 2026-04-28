@@ -10,13 +10,15 @@ class Configuracoes extends StatefulWidget {
 class _ConfiguracoesState extends State<Configuracoes> {
   static const Color azul = Color(0xFF1E3050);
 
-  bool soundOn = true;
-  bool vibrationOn = true;
-  bool dndOn = false;
-  bool groupNotifs = true;
-  bool classroomSync = false;
+  // Variáveis de estado (em português)
+  bool somAtivo = true;
+  bool vibracaoAtiva = true;
+  bool naoPerturbeAtivo = false;
+  bool notificacoesDeGrupo = true;
+  bool sincronizacaoClassroom = false;
 
-  final List<Map<String, String>> dndPeriods = [
+  // Períodos de Não Perturbe (lista mutável)
+  final List<Map<String, String>> periodosNaoPerturbe = [
     {'from': '22:00', 'to': '07:00'},
   ];
 
@@ -42,8 +44,8 @@ class _ConfiguracoesState extends State<Configuracoes> {
           SwitchListTile(
             title: const Text('Som'),
             subtitle: const Text('Ativa/desativa som das notificações'),
-            value: soundOn,
-            onChanged: (_) {},
+            value: somAtivo,
+            onChanged: (val) => setState(() => somAtivo = val),
             secondary: const Icon(Icons.volume_up, color: azul),
             activeColor: azul,
           ),
@@ -51,8 +53,8 @@ class _ConfiguracoesState extends State<Configuracoes> {
           SwitchListTile(
             title: const Text('Vibração'),
             subtitle: const Text('Ativa/desativa vibração nas notificações'),
-            value: vibrationOn,
-            onChanged: (_) {},
+            value: vibracaoAtiva,
+            onChanged: (val) => setState(() => vibracaoAtiva = val),
             secondary: const Icon(Icons.vibration, color: azul),
             activeColor: azul,
           ),
@@ -64,19 +66,19 @@ class _ConfiguracoesState extends State<Configuracoes> {
           SwitchListTile(
             title: const Text('Ativar Modo Não Perturbe'),
             subtitle: const Text('Silencia notificações nos períodos definidos'),
-            value: dndOn,
-            onChanged: (_) {},
+            value: naoPerturbeAtivo,
+            onChanged: (val) => setState(() => naoPerturbeAtivo = val),
             secondary: const Icon(Icons.do_not_disturb_on, color: azul),
             activeColor: azul,
           ),
 
           const SizedBox(height: 8),
-          for (var period in dndPeriods)
+          for (var periodo in periodosNaoPerturbe)
             Card(
               margin: const EdgeInsets.symmetric(vertical: 6),
               child: ListTile(
                 leading: const Icon(Icons.schedule, color: azul),
-                title: Text('${period['from']}  →  ${period['to']}'),
+                title: Text('${periodo['from']}  →  ${periodo['to']}'),
                 subtitle: const Text('Período agendado'),
                 trailing: Row(
                   mainAxisSize: MainAxisSize.min,
@@ -102,8 +104,8 @@ class _ConfiguracoesState extends State<Configuracoes> {
           SwitchListTile(
             title: const Text('Ativar notificações de grupos'),
             subtitle: const Text('Controla notificações vindas de lembretes compartilhados em grupos'),
-            value: groupNotifs,
-            onChanged: (_) {},
+            value: notificacoesDeGrupo,
+            onChanged: (val) => setState(() => notificacoesDeGrupo = val),
             secondary: const Icon(Icons.group, color: azul),
             activeColor: azul,
           ),
@@ -123,8 +125,8 @@ class _ConfiguracoesState extends State<Configuracoes> {
 
           SwitchListTile(
             title: const Text('Sincronizar com Google Classroom'),
-            value: classroomSync,
-            onChanged: (_) {},
+            value: sincronizacaoClassroom,
+            onChanged: (val) => setState(() => sincronizacaoClassroom = val),
             secondary: const Icon(Icons.class_, color: azul),
             activeColor: azul,
           ),
