@@ -10,14 +10,12 @@ class Configuracoes extends StatefulWidget {
 class _ConfiguracoesState extends State<Configuracoes> {
   static const Color azul = Color(0xFF1E3050);
 
-  // Variáveis de estado (em português)
   bool somAtivo = true;
   bool vibracaoAtiva = true;
   bool naoPerturbeAtivo = false;
   bool notificacoesDeGrupo = true;
   bool sincronizacaoClassroom = false;
 
-  // Períodos de Não Perturbe (lista mutável)
   final List<Map<String, String>> periodosNaoPerturbe = [
     {'from': '22:00', 'to': '07:00'},
   ];
@@ -40,38 +38,33 @@ class _ConfiguracoesState extends State<Configuracoes> {
         children: [
           const Text('Notificações e Som', style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
           const SizedBox(height: 12),
-
           SwitchListTile(
             title: const Text('Som'),
             subtitle: const Text('Ativa/desativa som das notificações'),
             value: somAtivo,
-            onChanged: (val) => setState(() => somAtivo = val),
+            onChanged: (_) {},
             secondary: const Icon(Icons.volume_up, color: azul),
             activeColor: azul,
           ),
-
           SwitchListTile(
             title: const Text('Vibração'),
             subtitle: const Text('Ativa/desativa vibração nas notificações'),
             value: vibracaoAtiva,
-            onChanged: (val) => setState(() => vibracaoAtiva = val),
+            onChanged: (_) {},
             secondary: const Icon(Icons.vibration, color: azul),
             activeColor: azul,
           ),
-
           const Divider(height: 32),
           const Text('Modo Não Perturbe', style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
           const SizedBox(height: 12),
-
           SwitchListTile(
             title: const Text('Ativar Modo Não Perturbe'),
             subtitle: const Text('Silencia notificações nos períodos definidos'),
             value: naoPerturbeAtivo,
-            onChanged: (val) => setState(() => naoPerturbeAtivo = val),
+            onChanged: (_) {},
             secondary: const Icon(Icons.do_not_disturb_on, color: azul),
             activeColor: azul,
           ),
-
           const SizedBox(height: 8),
           for (var periodo in periodosNaoPerturbe)
             Card(
@@ -90,26 +83,22 @@ class _ConfiguracoesState extends State<Configuracoes> {
                 ),
               ),
             ),
-
           TextButton.icon(
             onPressed: () {},
             icon: const Icon(Icons.add, color: azul),
             label: const Text('Adicionar período', style: TextStyle(color: azul)),
           ),
-
           const Divider(height: 32),
           const Text('Notificações por Grupo', style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
           const SizedBox(height: 12),
-
           SwitchListTile(
             title: const Text('Ativar notificações de grupos'),
             subtitle: const Text('Controla notificações vindas de lembretes compartilhados em grupos'),
             value: notificacoesDeGrupo,
-            onChanged: (val) => setState(() => notificacoesDeGrupo = val),
+            onChanged: (_) {},
             secondary: const Icon(Icons.group, color: azul),
             activeColor: azul,
           ),
-
           const SizedBox(height: 8),
           SwitchListTile(
             title: const Text('Trabalho de História'),
@@ -118,19 +107,16 @@ class _ConfiguracoesState extends State<Configuracoes> {
             secondary: const Icon(Icons.people_outline, color: azul),
             activeColor: azul,
           ),
-
           const Divider(height: 32),
           const Text('Google Classroom', style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
           const SizedBox(height: 12),
-
           SwitchListTile(
             title: const Text('Sincronizar com Google Classroom'),
             value: sincronizacaoClassroom,
-            onChanged: (val) => setState(() => sincronizacaoClassroom = val),
+            onChanged: (_) {},
             secondary: const Icon(Icons.class_, color: azul),
             activeColor: azul,
           ),
-
           const SizedBox(height: 8),
           ListTile(
             leading: const Icon(Icons.access_time, color: azul),
@@ -141,11 +127,9 @@ class _ConfiguracoesState extends State<Configuracoes> {
               onPressed: () {},
             ),
           ),
-
           const Divider(height: 32),
           const Text('Permissões e Privacidade', style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
           const SizedBox(height: 12),
-
           Card(
             child: ListTile(
               leading: const Icon(Icons.privacy_tip, color: azul),
@@ -157,7 +141,6 @@ class _ConfiguracoesState extends State<Configuracoes> {
               ),
             ),
           ),
-
           const SizedBox(height: 24),
         ],
       ),
