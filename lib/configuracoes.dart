@@ -8,7 +8,7 @@ class Configuracoes extends StatefulWidget {
 }
 
 class _ConfiguracoesState extends State<Configuracoes> {
-  static const Color primary = Color(0xFF1E3050);
+  static const Color azul = Color(0xFF1E3050);
 
   bool soundOn = true;
   bool vibrationOn = true;
@@ -25,7 +25,7 @@ class _ConfiguracoesState extends State<Configuracoes> {
     return Scaffold(
       backgroundColor: const Color(0xFFF6F7FB),
       appBar: AppBar(
-        backgroundColor: primary,
+        backgroundColor: azul,
         centerTitle: true,
         title: const Text('Configurações', style: TextStyle(color: Colors.white)),
         leading: IconButton(
@@ -44,8 +44,8 @@ class _ConfiguracoesState extends State<Configuracoes> {
             subtitle: const Text('Ativa/desativa som das notificações'),
             value: soundOn,
             onChanged: (_) {},
-            secondary: const Icon(Icons.volume_up, color: primary),
-            activeColor: primary,
+            secondary: const Icon(Icons.volume_up, color: azul),
+            activeColor: azul,
           ),
 
           SwitchListTile(
@@ -53,8 +53,8 @@ class _ConfiguracoesState extends State<Configuracoes> {
             subtitle: const Text('Ativa/desativa vibração nas notificações'),
             value: vibrationOn,
             onChanged: (_) {},
-            secondary: const Icon(Icons.vibration, color: primary),
-            activeColor: primary,
+            secondary: const Icon(Icons.vibration, color: azul),
+            activeColor: azul,
           ),
 
           const Divider(height: 32),
@@ -66,8 +66,8 @@ class _ConfiguracoesState extends State<Configuracoes> {
             subtitle: const Text('Silencia notificações nos períodos definidos'),
             value: dndOn,
             onChanged: (_) {},
-            secondary: const Icon(Icons.do_not_disturb_on, color: primary),
-            activeColor: primary,
+            secondary: const Icon(Icons.do_not_disturb_on, color: azul),
+            activeColor: azul,
           ),
 
           const SizedBox(height: 8),
@@ -75,7 +75,7 @@ class _ConfiguracoesState extends State<Configuracoes> {
             Card(
               margin: const EdgeInsets.symmetric(vertical: 6),
               child: ListTile(
-                leading: const Icon(Icons.schedule, color: primary),
+                leading: const Icon(Icons.schedule, color: azul),
                 title: Text('${period['from']}  →  ${period['to']}'),
                 subtitle: const Text('Período agendado'),
                 trailing: Row(
@@ -91,8 +91,8 @@ class _ConfiguracoesState extends State<Configuracoes> {
 
           TextButton.icon(
             onPressed: () {},
-            icon: const Icon(Icons.add, color: primary),
-            label: const Text('Adicionar período', style: TextStyle(color: primary)),
+            icon: const Icon(Icons.add, color: azul),
+            label: const Text('Adicionar período', style: TextStyle(color: azul)),
           ),
 
           const Divider(height: 32),
@@ -104,8 +104,8 @@ class _ConfiguracoesState extends State<Configuracoes> {
             subtitle: const Text('Controla notificações vindas de lembretes compartilhados em grupos'),
             value: groupNotifs,
             onChanged: (_) {},
-            secondary: const Icon(Icons.group, color: primary),
-            activeColor: primary,
+            secondary: const Icon(Icons.group, color: azul),
+            activeColor: azul,
           ),
 
           const SizedBox(height: 8),
@@ -113,8 +113,8 @@ class _ConfiguracoesState extends State<Configuracoes> {
             title: const Text('Trabalho de História'),
             value: true,
             onChanged: (_) {},
-            secondary: const Icon(Icons.people_outline, color: primary),
-            activeColor: primary,
+            secondary: const Icon(Icons.people_outline, color: azul),
+            activeColor: azul,
           ),
 
           const Divider(height: 32),
@@ -125,17 +125,17 @@ class _ConfiguracoesState extends State<Configuracoes> {
             title: const Text('Sincronizar com Google Classroom'),
             value: classroomSync,
             onChanged: (_) {},
-            secondary: const Icon(Icons.class_, color: primary),
-            activeColor: primary,
+            secondary: const Icon(Icons.class_, color: azul),
+            activeColor: azul,
           ),
 
           const SizedBox(height: 8),
           ListTile(
-            leading: const Icon(Icons.access_time, color: primary),
+            leading: const Icon(Icons.access_time, color: azul),
             title: const Text('Pré‑aviso de prazo (atividades Classroom)'),
             subtitle: const Text('4 horas antes'),
             trailing: IconButton(
-              icon: const Icon(Icons.arrow_drop_down, color: primary),
+              icon: const Icon(Icons.arrow_drop_down, color: azul),
               onPressed: () {},
             ),
           ),
@@ -146,12 +146,12 @@ class _ConfiguracoesState extends State<Configuracoes> {
 
           Card(
             child: ListTile(
-              leading: const Icon(Icons.privacy_tip, color: primary),
+              leading: const Icon(Icons.privacy_tip, color: azul),
               title: const Text('Permissões e dados sincronizados'),
               subtitle: const Text('Ver e revogar acessos (Classroom, notificações)'),
               trailing: TextButton(
                 onPressed: () {},
-                child: const Text('Abrir', style: TextStyle(color: primary)),
+                child: const Text('Abrir', style: TextStyle(color: azul)),
               ),
             ),
           ),

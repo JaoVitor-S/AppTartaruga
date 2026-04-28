@@ -8,7 +8,7 @@ class Perfil extends StatefulWidget {
 }
 
 class _PerfilState extends State<Perfil> {
-  static const Color primary = Color(0xFF1E3050);
+  static const Color azul = Color(0xFF1E3050);
 
   int currentIndex = 3;
 
@@ -17,7 +17,7 @@ class _PerfilState extends State<Perfil> {
     return Scaffold(
       backgroundColor: const Color(0xFFF6F7FB),
       appBar: AppBar(
-        backgroundColor: primary,
+        backgroundColor: azul,
         centerTitle: true,
         title: const Text('Perfil', style: TextStyle(color: Colors.white)),
         actions: const [
@@ -32,7 +32,7 @@ class _PerfilState extends State<Perfil> {
               children: [
                 CircleAvatar(
                   radius: 36,
-                  backgroundColor: primary.withOpacity(0.12),
+                  backgroundColor: azul .withOpacity(0.12),
                   child: const Text('J', style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold)),
                 ),
                 const SizedBox(width: 12),
@@ -43,9 +43,9 @@ class _PerfilState extends State<Perfil> {
             const SizedBox(height: 16),
             Row(
               children: [
-                _statCard(label: 'Lembretes\nconcluídos', value: '0', color: primary),
+                _statCard(label: 'Lembretes\nconcluídos', value: '0', color: azul),
                 const SizedBox(width: 10),
-                _statCard(label: 'Lembretes\npendentes', value: '0', color: primary),
+                _statCard(label: 'Lembretes\npendentes', value: '0', color: azul),
               ],
             ),
             const SizedBox(height: 16),
@@ -65,7 +65,7 @@ class _PerfilState extends State<Perfil> {
                 value: 0.0,
                 minHeight: 10,
                 backgroundColor: Colors.grey.shade300,
-                valueColor: AlwaysStoppedAnimation<Color>(primary),
+                valueColor: AlwaysStoppedAnimation<Color>(azul),
               ),
             ),
             const Spacer(),
@@ -75,8 +75,8 @@ class _PerfilState extends State<Perfil> {
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: currentIndex,
         type: BottomNavigationBarType.fixed,
-        selectedItemColor: primary,
-        unselectedItemColor: primary.withOpacity(0.5),
+        selectedItemColor: azul,
+        unselectedItemColor: azul.withOpacity(0.5),
         items: const [
           BottomNavigationBarItem(icon: Icon(Icons.notifications_none), activeIcon: Icon(Icons.notifications), label: 'Lembretes'),
           BottomNavigationBarItem(icon: Icon(Icons.list_alt_outlined), activeIcon: Icon(Icons.list_alt), label: 'Atividades'),
