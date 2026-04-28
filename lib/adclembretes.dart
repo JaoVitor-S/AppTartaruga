@@ -7,7 +7,7 @@ class AdcLembretes extends StatelessWidget {
       {"label": "Título", "linhas": 1},
       {"label": "Descrição (opcional)", "linhas": 2},
       {"label": "Data (dd/mm/aaaa)", "linhas": 1},
-      {"label": "Horário (hh:mm)", "linhas": 1},
+      {"label": "Horário (00:00)", "linhas": 1},
     ];
     return Scaffold(
       appBar: AppBar(

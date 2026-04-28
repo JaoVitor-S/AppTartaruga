@@ -6,7 +6,7 @@ class Lembretes extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final lembretes = [
-      {"titulo": "Estudar Matemática", "detalhe": "12:30\n28/03/2026 - pessoal"},
+      {"titulo": "Estudar Matemática.", "detalhe": "12:30\n28/03/2026 - pessoal"},
       {"titulo": "Trabalho de História", "detalhe": "15:20\n30/03/2026 - grupo"},
       {"titulo": "Revisar Física", "detalhe": "19:00\n02/04/2026 - pessoal"},
     ];
