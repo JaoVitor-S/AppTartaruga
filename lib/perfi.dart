@@ -77,7 +77,6 @@ class _PerfilState extends State<Perfil> {
         type: BottomNavigationBarType.fixed,
         selectedItemColor: primary,
         unselectedItemColor: primary.withOpacity(0.5),
-        onTap: (i) => setState(() => currentIndex = i),
         items: const [
           BottomNavigationBarItem(icon: Icon(Icons.notifications_none), activeIcon: Icon(Icons.notifications), label: 'Lembretes'),
           BottomNavigationBarItem(icon: Icon(Icons.list_alt_outlined), activeIcon: Icon(Icons.list_alt), label: 'Atividades'),
