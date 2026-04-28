@@ -1,0 +1,164 @@
+import 'package:flutter/material.dart';
+
+class Configuracoes extends StatefulWidget {
+  const Configuracoes({super.key});
+
+  @override
+  State<Configuracoes> createState() => _ConfiguracoesState();
+}
+
+class _ConfiguracoesState extends State<Configuracoes> {
+  static const Color primary = Color(0xFF1E3050);
+
+  bool soundOn = true;
+  bool vibrationOn = true;
+  bool dndOn = false;
+  bool groupNotifs = true;
+  bool classroomSync = false;
+
+  final List<Map<String, String>> dndPeriods = [
+    {'from': '22:00', 'to': '07:00'},
+  ];
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: const Color(0xFFF6F7FB),
+      appBar: AppBar(
+        backgroundColor: primary,
+        centerTitle: true,
+        title: const Text('Configurações', style: TextStyle(color: Colors.white)),
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back, color: Colors.white),
+          onPressed: () {},
+        ),
+      ),
+      body: ListView(
+        padding: const EdgeInsets.all(16),
+        children: [
+          const Text('Notificações e Som', style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
+          const SizedBox(height: 12),
+
+          SwitchListTile(
+            title: const Text('Som'),
+            subtitle: const Text('Ativa/desativa som das notificações'),
+            value: soundOn,
+            onChanged: (_) {},
+            secondary: const Icon(Icons.volume_up, color: primary),
+            activeColor: primary,
+          ),
+
+          SwitchListTile(
+            title: const Text('Vibração'),
+            subtitle: const Text('Ativa/desativa vibração nas notificações'),
+            value: vibrationOn,
+            onChanged: (_) {},
+            secondary: const Icon(Icons.vibration, color: primary),
+            activeColor: primary,
+          ),
+
+          const Divider(height: 32),
+          const Text('Modo Não Perturbe', style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
+          const SizedBox(height: 12),
+
+          SwitchListTile(
+            title: const Text('Ativar Modo Não Perturbe'),
+            subtitle: const Text('Silencia notificações nos períodos definidos'),
+            value: dndOn,
+            onChanged: (_) {},
+            secondary: const Icon(Icons.do_not_disturb_on, color: primary),
+            activeColor: primary,
+          ),
+
+          const SizedBox(height: 8),
+          for (var period in dndPeriods)
+            Card(
+              margin: const EdgeInsets.symmetric(vertical: 6),
+              child: ListTile(
+                leading: const Icon(Icons.schedule, color: primary),
+                title: Text('${period['from']}  →  ${period['to']}'),
+                subtitle: const Text('Período agendado'),
+                trailing: Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    InkWell(onTap: () {}, child: const Padding(padding: EdgeInsets.all(6), child: Icon(Icons.edit, color: Colors.grey))),
+                    const SizedBox(width: 8),
+                    InkWell(onTap: () {}, child: const Padding(padding: EdgeInsets.all(6), child: Icon(Icons.delete, color: Colors.redAccent))),
+                  ],
+                ),
+              ),
+            ),
+
+          TextButton.icon(
+            onPressed: () {},
+            icon: const Icon(Icons.add, color: primary),
+            label: const Text('Adicionar período', style: TextStyle(color: primary)),
+          ),
+
+          const Divider(height: 32),
+          const Text('Notificações por Grupo', style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
+          const SizedBox(height: 12),
+
+          SwitchListTile(
+            title: const Text('Ativar notificações de grupos'),
+            subtitle: const Text('Controla notificações vindas de lembretes compartilhados em grupos'),
+            value: groupNotifs,
+            onChanged: (_) {},
+            secondary: const Icon(Icons.group, color: primary),
+            activeColor: primary,
+          ),
+
+          const SizedBox(height: 8),
+          SwitchListTile(
+            title: const Text('Trabalho de História'),
+            value: true,
+            onChanged: (_) {},
+            secondary: const Icon(Icons.people_outline, color: primary),
+            activeColor: primary,
+          ),
+
+          const Divider(height: 32),
+          const Text('Google Classroom', style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
+          const SizedBox(height: 12),
+
+          SwitchListTile(
+            title: const Text('Sincronizar com Google Classroom'),
+            value: classroomSync,
+            onChanged: (_) {},
+            secondary: const Icon(Icons.class_, color: primary),
+            activeColor: primary,
+          ),
+
+          const SizedBox(height: 8),
+          ListTile(
+            leading: const Icon(Icons.access_time, color: primary),
+            title: const Text('Pré‑aviso de prazo (atividades Classroom)'),
+            subtitle: const Text('4 horas antes'),
+            trailing: IconButton(
+              icon: const Icon(Icons.arrow_drop_down, color: primary),
+              onPressed: () {},
+            ),
+          ),
+
+          const Divider(height: 32),
+          const Text('Permissões e Privacidade', style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
+          const SizedBox(height: 12),
+
+          Card(
+            child: ListTile(
+              leading: const Icon(Icons.privacy_tip, color: primary),
+              title: const Text('Permissões e dados sincronizados'),
+              subtitle: const Text('Ver e revogar acessos (Classroom, notificações)'),
+              trailing: TextButton(
+                onPressed: () {},
+                child: const Text('Abrir', style: TextStyle(color: primary)),
+              ),
+            ),
+          ),
+
+          const SizedBox(height: 24),
+        ],
+      ),
+    );
+  }
+}
