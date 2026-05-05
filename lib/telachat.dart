@@ -13,7 +13,7 @@ final grupoGeografia = Grupo(
   membros: ['Eu', 'Bruno', 'João', 'Weverton'],
   mensagens: [
     {'autor': 'Eu', 'texto': 'Tropa, tem prova de geografia marcada? Pra qual dia?', 'souEU': true, 'hora': '20:14'},
-    {'autor': 'Bruno', 'texto': 'Tem sim, dia 12/05. O assunto é urbanização. Têm três slides no classroom de geografia pra estudar', 'souEU': false, 'hora': '20:17'},
+    {'autor': 'Bruno', 'texto': 'Tem sim, dia 05/05. O assunto é urbanização. Têm três slides no classroom de geografia pra estudar', 'souEU': false, 'hora': '20:17'},
     {'autor': 'João', 'texto': 'Já vi os slides, tem coisa demais', 'souEU': false, 'hora': '20:19'},
     {'autor': 'Weverton', 'texto': 'Cuida estudar', 'souEU': false, 'hora': '20:22'},
   ],
