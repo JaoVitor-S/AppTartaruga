@@ -80,7 +80,7 @@ class TelaChat extends StatelessWidget {
                 Expanded(
                   child: TextField(
                     decoration: InputDecoration(
-                      hintText: 'Digite uma mensagem...',
+                      hintText: 'Digite uma mensagem',
                       filled: true,
                       fillColor: const Color(0xFFF2F4F7),
                       border: OutlineInputBorder(
