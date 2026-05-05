@@ -26,7 +26,7 @@ class TelaGrupos extends StatelessWidget {
           children: [
             const Text('Grupos', style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold)),
             const SizedBox(height: 4),
-            const Text('Compartilhe lembretes com colegas e organize tarefas por turma.', style: TextStyle(color: Colors.grey)),
+            const Text('Compartilhe lembretes com colegas e organize tarefas.', style: TextStyle(color: Colors.grey)),
             const SizedBox(height: 16),
             ListTile(
               tileColor: Colors.white,
