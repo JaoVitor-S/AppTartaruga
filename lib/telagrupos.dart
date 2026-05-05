@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class TelaGrupos extends StatelessWidget {
-  const TelaGrupos({super.key});
+  TelaGrupos({super.key});
 
   @override
   Widget build(BuildContext contexto) {
