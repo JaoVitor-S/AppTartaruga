@@ -1,34 +1,48 @@
 import 'package:flutter/material.dart';
-class EditLembretes extends StatelessWidget {
-  const EditLembretes({super.key});
+
+class AdcLembretes extends StatelessWidget {
+  const AdcLembretes({super.key});
+
   @override
   Widget build(BuildContext context) {
-    final campos = [
-      {"label": "Título", "linhas": 1},
-      {"label": "Descrição (opcional)", "linhas": 2},
-      {"label": "Data (dd/mm/aaaa)", "linhas": 1},
-      {"label": "Horário (00:00)", "linhas": 1},
-    ];
     return Scaffold(
       appBar: AppBar(
         backgroundColor: const Color(0xFF1E3050),
-        title: const Text("Editar Lembrete Salvo", style: TextStyle(color: Colors.white)),
+        title: const Text("Novo Lembrete", style: TextStyle(color: Colors.white)),
         centerTitle: true,
       ),
       body: Padding(
         padding: const EdgeInsets.all(20),
         child: Column(
           children: [
-            ...campos.map((c) => Padding(
-              padding: const EdgeInsets.only(bottom: 16),
-              child: TextField(
-                maxLines: c["linhas"] as int,
-                decoration: InputDecoration(
-                  labelText: c["label"] as String,
-                  border: const OutlineInputBorder(),
-                ),
+            TextField(
+              decoration: const InputDecoration(
+                labelText: "Título",
+                border: OutlineInputBorder(),
               ),
-            )),
+            ),
+            const SizedBox(height: 16),
+            TextField(
+              maxLines: 2,
+              decoration: const InputDecoration(
+                labelText: "Descrição (opcional)",
+                border: OutlineInputBorder(),
+              ),
+            ),
+            const SizedBox(height: 16),
+            TextField(
+              decoration: const InputDecoration(
+                labelText: "Data (dd/mm/aaaa)",
+                border: OutlineInputBorder(),
+              ),
+            ),
+            const SizedBox(height: 16),
+            TextField(
+              decoration: const InputDecoration(
+                labelText: "Horário (00:00)",
+                border: OutlineInputBorder(),
+              ),
+            ),
             const SizedBox(height: 20),
             Row(
               children: [
