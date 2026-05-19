@@ -62,7 +62,7 @@ import 'package:flutter/material.dart';
             ),
 
 
-            const SizedBox(height: 20),
+            const SizedBox(height: 40),
 
 
             Row(

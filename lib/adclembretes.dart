@@ -62,17 +62,17 @@ import 'package:flutter/material.dart';
             ),
 
 
-            const SizedBox(height: 20),
+            const SizedBox(height: 40),
 
 
             Row(
               children: [
                 ElevatedButton(
                   onPressed: () {},
-                  child: const Text("Editar"),
+                  child: const Text("Salvar"),
                 ),
 
-                const SizedBox(width: 20),
+                const SizedBox(width: 15),
 
                 ElevatedButton(
                   onPressed: () {},

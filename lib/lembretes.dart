@@ -7,6 +7,7 @@ import 'package:flutter/material.dart';
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: const Color(0xFF1E3050),
         title: const Text("Assistente Acadêmico", style: TextStyle(color: Colors.white)),
         centerTitle: true,
       ),
