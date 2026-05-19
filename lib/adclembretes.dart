@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class AdcLembretes extends StatelessWidget {
+  class AdcLembretes extends StatelessWidget {
   const AdcLembretes({super.key});
 
   @override
@@ -11,8 +11,14 @@ class AdcLembretes extends StatelessWidget {
         title: const Text("Novo Lembrete", style: TextStyle(color: Colors.white)),
         centerTitle: true,
       ),
+
+
       body: Padding(
+
+
         padding: const EdgeInsets.all(20),
+
+
         child: Column(
           children: [
             TextField(
@@ -21,49 +27,64 @@ class AdcLembretes extends StatelessWidget {
                 border: OutlineInputBorder(),
               ),
             ),
+
+
             const SizedBox(height: 16),
+
+
             TextField(
-              maxLines: 2,
               decoration: const InputDecoration(
                 labelText: "Descrição (opcional)",
                 border: OutlineInputBorder(),
               ),
             ),
+
+
             const SizedBox(height: 16),
+
+
             TextField(
               decoration: const InputDecoration(
                 labelText: "Data (dd/mm/aaaa)",
                 border: OutlineInputBorder(),
               ),
             ),
+
+
             const SizedBox(height: 16),
+
+
             TextField(
               decoration: const InputDecoration(
                 labelText: "Horário (00:00)",
                 border: OutlineInputBorder(),
               ),
             ),
+
+
             const SizedBox(height: 20),
+
+
             Row(
               children: [
-                Expanded(
-                  child: ElevatedButton(
-                    onPressed: () {},
-                    child: const Text("Salvar"),
-                  ),
+                ElevatedButton(
+                  onPressed: () {},
+                  child: const Text("Editar"),
                 ),
-                const SizedBox(width: 16),
-                Expanded(
-                  child: OutlinedButton(
-                    onPressed: () {},
-                    child: const Text("Cancelar"),
-                  ),
+
+                const SizedBox(width: 20),
+
+                ElevatedButton(
+                  onPressed: () {},
+                  child: const Text("Cancelar"),
                 ),
               ],
-            ),
+            )
           ],
         ),
       ),
+
+
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.fixed,
         currentIndex: 0,
