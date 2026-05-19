@@ -17,7 +17,7 @@ class Dicas extends StatelessWidget{
         body: Padding(
             padding: EdgeInsets.all(16),
             child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children:[
                 Text('Exatas',
               style: TextStyle(
