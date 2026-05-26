@@ -14,7 +14,7 @@ class Dicas extends StatelessWidget{
           ),
         ),
         body: Padding(
-            padding: EdgeInsets.all(16),
+            padding: EdgeInsets.all(15),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children:[
