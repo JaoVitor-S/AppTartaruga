@@ -3,8 +3,7 @@ import 'package:flutter/material.dart';
 class Dicas extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
+    return Scaffold(
         appBar: AppBar(
           backgroundColor: Colors.indigo[900],
           title: Text('Assistente Acadêmico.'),
@@ -236,8 +235,7 @@ class Dicas extends StatelessWidget{
         ),
 
 
-      ),
-    );
+      );
   }
 
 }
