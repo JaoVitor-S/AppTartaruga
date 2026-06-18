@@ -16,7 +16,7 @@ import 'package:flutter/material.dart';
       body: Padding(
 
 
-        padding: const EdgeInsets.all(16),
+        padding: const EdgeInsets.all(23),
 
 
         child: Column(
@@ -24,13 +24,12 @@ import 'package:flutter/material.dart';
             TextField(
               decoration: const InputDecoration(
                 hintText: "Pesquisar lembretes",
-                prefixIcon: Icon(Icons.search),
                 border: OutlineInputBorder(),
               ),
             ),
 
 
-            const SizedBox(height: 20),
+            const SizedBox(height: 13),
 
 
             Card(
@@ -93,7 +92,6 @@ import 'package:flutter/material.dart';
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.fixed,
         currentIndex: 0,
-        onTap: (index) {},
         items: const [
           BottomNavigationBarItem(icon: Icon(Icons.notifications), label: "Lembretes"),
           BottomNavigationBarItem(icon: Icon(Icons.checklist), label: "Atividades"),

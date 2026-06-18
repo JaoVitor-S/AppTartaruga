@@ -16,7 +16,7 @@ import 'package:flutter/material.dart';
       body: Padding(
 
 
-        padding: const EdgeInsets.all(20),
+        padding: const EdgeInsets.all(23),
 
 
         child: Column(
@@ -29,7 +29,7 @@ import 'package:flutter/material.dart';
             ),
 
 
-            const SizedBox(height: 16),
+            const SizedBox(height: 21),
 
 
             TextField(
@@ -40,7 +40,7 @@ import 'package:flutter/material.dart';
             ),
 
 
-            const SizedBox(height: 16),
+            const SizedBox(height: 21),
 
 
             TextField(
@@ -51,7 +51,7 @@ import 'package:flutter/material.dart';
             ),
 
 
-            const SizedBox(height: 16),
+            const SizedBox(height: 21),
 
 
             TextField(
@@ -62,7 +62,7 @@ import 'package:flutter/material.dart';
             ),
 
 
-            const SizedBox(height: 40),
+            const SizedBox(height: 17),
 
 
             Row(
@@ -72,7 +72,7 @@ import 'package:flutter/material.dart';
                   child: const Text("Salvar"),
                 ),
 
-                const SizedBox(width: 15),
+                const SizedBox(width: 17),
 
                 ElevatedButton(
                   onPressed: () {},
@@ -88,7 +88,6 @@ import 'package:flutter/material.dart';
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.fixed,
         currentIndex: 0,
-        onTap: (index) {},
         items: const [
           BottomNavigationBarItem(icon: Icon(Icons.notifications), label: "Lembretes"),
           BottomNavigationBarItem(icon: Icon(Icons.checklist), label: "Atividades"),
