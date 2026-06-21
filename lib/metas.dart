@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'dicas.dart';
 
 class Metas extends StatelessWidget{
   @override
@@ -9,13 +10,17 @@ class Metas extends StatelessWidget{
           title: Text('Assistente Acadêmico.'),
             centerTitle: true,
             titleTextStyle: TextStyle(
-            color: Colors.white,
             fontSize:24,
         ),
             actions:[
               IconButton(
                 icon: Icon(Icons.lightbulb_outline),
-                onPressed: (){},
+                onPressed: (){
+                  Navigator.of(context).push(
+                    MaterialPageRoute(builder: (context) => Dicas())
+
+                  );
+                },
               ),
             ]
 
@@ -51,6 +56,15 @@ class Metas extends StatelessWidget{
                       onPressed: (){},
                     ),
                   ],
+                ),
+                ListTile(
+                  leading: Icon(Icons.eighteen_mp),
+                  title: Text('yrr'),
+                  subtitle: Text('yrr'),
+                  trailing:
+                      Icon(Icons.eighteen_mp)
+
+
                 ),
                 Row(
                   children:[

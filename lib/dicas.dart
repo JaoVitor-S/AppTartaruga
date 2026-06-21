@@ -9,7 +9,6 @@ class Dicas extends StatelessWidget{
           title: Text('Assistente Acadêmico.'),
           centerTitle: true,
           titleTextStyle: TextStyle(
-            color: Colors.white,
             fontSize: 24,
           ),
         ),
