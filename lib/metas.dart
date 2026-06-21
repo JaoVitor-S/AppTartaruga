@@ -27,131 +27,66 @@ class Metas extends StatelessWidget{
         ),
             body: Column(
               children:[
-                Row(
-                  children:[
-                    Icon(
-                        Icons.circle,
-                        size: 10,
-                        color: Colors.black
-                    ),
-                    SizedBox(width: 10),
-                    Text('Completar o esboço do TCC',
-                      style: TextStyle(
-                        color: Colors.black,
-                        fontSize: 18,
-                      ),
-                    ),
 
-                    Spacer(),
-                    IconButton(
-                      icon: Icon(Icons.check),
-                      onPressed: (){},
-                    ),
-                    IconButton(
-                      icon: Icon(Icons.edit),
-                      onPressed: (){},
-                    ),
-                    IconButton(
-                      icon: Icon(Icons.delete),
-                      onPressed: (){},
-                    ),
-                  ],
+                ListTile(
+                  leading: Icon(Icons.keyboard_double_arrow_right_sharp),
+                  title: Text('Completar o esboço do TCC'),
+                  trailing:
+                    Row(
+                      mainAxisSize: MainAxisSize.min,
+                      children:[
+                        Icon(Icons.check),
+                        SizedBox(width: 12),
+                        Icon(Icons.edit),
+                        SizedBox(width: 12),
+                        Icon(Icons.delete),
+                      ]
+                    )
                 ),
                 ListTile(
-                  leading: Icon(Icons.eighteen_mp),
-                  title: Text('yrr'),
-                  subtitle: Text('yrr'),
-                  trailing:
-                      Icon(Icons.eighteen_mp)
-
-
-                ),
-                Row(
-                  children:[
-                    Icon(
-                        Icons.circle,
-                        size: 10,
-                        color: Colors.black
-                    ),
-                    SizedBox(width: 10),
-                    Text('Aprender inglês',
-                        style: TextStyle(
-                          color: Colors.black,
-                          fontSize: 18,
-                    ),
-                    ),
-                    Spacer(),
-                    IconButton(
-                      icon: Icon(Icons.check),
-                      onPressed: (){},
-                    ),
-                    IconButton(
-                      icon: Icon(Icons.edit),
-                      onPressed: (){},
-                    ),
-                    IconButton(
-                      icon: Icon(Icons.delete),
-                      onPressed: (){},
+                    leading: Icon(Icons.keyboard_double_arrow_right_sharp),
+                    title: Text('Aprender Inglês'),
+                    trailing:
+                    Row(
+                        mainAxisSize: MainAxisSize.min,
+                        children:[
+                          Icon(Icons.check),
+                          SizedBox(width: 12),
+                          Icon(Icons.edit),
+                          SizedBox(width: 12),
+                          Icon(Icons.delete),
+                        ]
                     )
-                  ],
                 ),
-                Row(
-                  children:[
-                    Icon(
-                      Icons.circle,
-                      size:10,
-                      color: Colors.black
-                    ),
-                    SizedBox(width: 10),
-                    Text('Ler 12 livros no ano',
-                      style: TextStyle(
-                        color: Colors.black,
-                        fontSize: 18,
-                      ),
-                    ),
-                    Spacer(),
-                    IconButton(
-                      icon: Icon(Icons.check),
-                      onPressed: (){},
-                    ),
-                    IconButton(
-                      icon: Icon(Icons.edit),
-                      onPressed: (){},
-                    ),
-                    IconButton(
-                      icon: Icon(Icons.delete),
-                      onPressed: (){},
+                ListTile(
+                    leading: Icon(Icons.keyboard_double_arrow_right_sharp),
+                    title: Text('Ler 12 livros no ano'),
+                    trailing:
+                    Row(
+                        mainAxisSize: MainAxisSize.min,
+                        children:[
+                          Icon(Icons.check),
+                          SizedBox(width: 12),
+                          Icon(Icons.edit),
+                          SizedBox(width: 12),
+                          Icon(Icons.delete),
+                        ]
                     )
-                  ]
                 ),
-                Row(
-                    children:[
-                      Icon(
-                          Icons.circle,
-                          size:10,
-                          color: Colors.black
-                      ),
-                      SizedBox(width: 10),
-                      Text('Desenhar por 30 dias',
-                        style: TextStyle(
-                          color: Colors.black,
-                          fontSize: 18,
-                        ),
-                      ),
-                      Spacer(),
-                      IconButton(
-                        icon: Icon(Icons.check),
-                        onPressed: (){},
-                      ),
-                      IconButton(
-                        icon: Icon(Icons.edit),
-                        onPressed: (){},
-                      ),
-                      IconButton(
-                        icon: Icon(Icons.delete),
-                        onPressed: (){},
-                      ),
-                    ]
+                ListTile(
+                    leading: Icon(Icons.keyboard_double_arrow_right_sharp),
+                    title: Text('Desenhar por 30 dias'),
+                    trailing:
+                    Row(
+                        mainAxisSize: MainAxisSize.min,
+                        children:[
+                          Icon(Icons.check),
+                          SizedBox(width: 12),
+                          Icon(Icons.edit),
+                          SizedBox(width: 12),
+                          Icon(Icons.delete),
+                        ]
+                    )
                 ),
               ]
 
