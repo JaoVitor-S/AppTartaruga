@@ -12,14 +12,21 @@ class _MetasState extends State<Metas> {
   List<Meta> listaMetas = [];
 
   @override
-  void initState() {
+  void initState() { //metodo executado quando a tela carrega
+
     super.initState();
-    loadData();
+
+    loadData(); //chama a funçao pra carregar os dados
   }
 
   loadData() async {
+
     listaMetas = await MetaDao().listarMetas();
+
     setState(() {});
+    //atualiza os dados da tela
+
+
   }
 
   @override
@@ -44,10 +51,12 @@ class _MetasState extends State<Metas> {
         ],
       ),
 
-      body: ListView.builder(
-        itemCount: listaMetas.length,
+      body: ListView.builder( //Corpo da tela: constrói a lista com base nos dados buscados
+
+        itemCount: listaMetas.length, //define o tamanho da lista
+
         itemBuilder: (context, i) {
-          Meta meta = listaMetas[i];
+          Meta meta = listaMetas[i]; //pega a meta correspondente a linha atual
           return ListTile(
             leading: Icon(Icons.keyboard_double_arrow_right_sharp),
             title: Text(meta.titulo),
