@@ -1,99 +1,41 @@
 import 'package:flutter/material.dart';
+import 'lembrete.dart';
+import 'lembrete_dao.dart';
 
-  class AdcLembretes extends StatelessWidget {
-  const AdcLembretes({super.key});
+class AdcLembretes extends StatelessWidget {
+  final tituloController = TextEditingController();
+  final horarioController = TextEditingController();
+  final dataController = TextEditingController();
+
+  AdcLembretes({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: const Color(0xFF1E3050),
-        title: const Text("Novo Lembrete", style: TextStyle(color: Colors.white)),
-        centerTitle: true,
-      ),
-
-
+      appBar: AppBar(title: const Text("Adicionar Lembrete")),
       body: Padding(
-
-
-        padding: const EdgeInsets.all(23),
-
-
+        padding: const EdgeInsets.all(16),
         child: Column(
           children: [
-            TextField(
-              decoration: const InputDecoration(
-                labelText: "Título",
-                border: OutlineInputBorder(),
-              ),
+            TextField(controller: tituloController, decoration: const InputDecoration(labelText: "Título")),
+            TextField(controller: horarioController, decoration: const InputDecoration(labelText: "Horário")),
+            TextField(controller: dataController, decoration: const InputDecoration(labelText: "Data")),
+
+
+            const SizedBox(height: 20),
+
+
+            ElevatedButton(
+              onPressed: () async {
+                await LembreteDao().inserirLembrete(
+                  Lembrete(titulo: tituloController.text, horario: horarioController.text, data: dataController.text),
+                );
+                Navigator.pop(context);
+              },
+              child: const Text("Salvar"),
             ),
-
-
-            const SizedBox(height: 21),
-
-
-            TextField(
-              decoration: const InputDecoration(
-                labelText: "Descrição (opcional)",
-                border: OutlineInputBorder(),
-              ),
-            ),
-
-
-            const SizedBox(height: 21),
-
-
-            TextField(
-              decoration: const InputDecoration(
-                labelText: "Data (dd/mm/aaaa)",
-                border: OutlineInputBorder(),
-              ),
-            ),
-
-
-            const SizedBox(height: 21),
-
-
-            TextField(
-              decoration: const InputDecoration(
-                labelText: "Horário (00:00)",
-                border: OutlineInputBorder(),
-              ),
-            ),
-
-
-            const SizedBox(height: 17),
-
-
-            Row(
-              children: [
-                ElevatedButton(
-                  onPressed: () {},
-                  child: const Text("Salvar"),
-                ),
-
-                const SizedBox(width: 17),
-
-                ElevatedButton(
-                  onPressed: () {},
-                  child: const Text("Cancelar"),
-                ),
-              ],
-            )
           ],
         ),
-      ),
-
-
-      bottomNavigationBar: BottomNavigationBar(
-        type: BottomNavigationBarType.fixed,
-        currentIndex: 0,
-        items: const [
-          BottomNavigationBarItem(icon: Icon(Icons.notifications), label: "Lembretes"),
-          BottomNavigationBarItem(icon: Icon(Icons.checklist), label: "Atividades"),
-          BottomNavigationBarItem(icon: Icon(Icons.group), label: "Grupos"),
-          BottomNavigationBarItem(icon: Icon(Icons.person), label: "Perfil"),
-        ],
       ),
     );
   }
