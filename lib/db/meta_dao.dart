@@ -11,7 +11,7 @@ class MetaDao {
     var listaResult = await db.rawQuery('SELECT * FROM META;'); //vai executar uma consulta em meta
 
     //jason é um tipo de arquivo que mostra sempre a chave/coluna do banco e em seguida mostra o valor dela.
-    //cada chave é um elemento, cada elemento representa uma linha no banco de dados.
+    //cada chave é um elemednto, cada elemento representa uma linha no banco de dados.
     //cada colchete é uma lista
 
     List<Meta> listaMetas = []; //começa vazia

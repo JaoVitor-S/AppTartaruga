@@ -11,7 +11,6 @@ class Meta{
     //required indica que é obrigatório fornecer o dado pra criação do objeto, caso contrário, dará erro
 });
 
-  //construtor nomeado -->
   Meta.fromJson(Map<String, dynamic>json){
     id = json['id'];
     titulo = json['titulo'];
