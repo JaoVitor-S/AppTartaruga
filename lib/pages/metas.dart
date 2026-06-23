@@ -5,18 +5,18 @@ import '../domain/meta.dart';
 
 class Metas extends StatefulWidget {
   @override
-  State<Metas> createState() => _MetasState();
+  State<Metas> createState() => _MetasState(); //cria a máquina que faz o recarregamento possível
 }
 
 class _MetasState extends State<Metas> {
   List<Meta> listaMetas = [];
 
   @override
-  void initState() { //metodo executado quando a tela carrega
+  void initState() { //metodo que é executado quando a tela carrega
 
     super.initState();
 
-    loadData(); //chama a funçao pra carregar os dados
+    loadData(); //chama a funçao pra carregar os dados do banco
   }
 
   loadData() async {
@@ -45,18 +45,22 @@ class _MetasState extends State<Metas> {
             onPressed: () {
               Navigator.of(context).push(
                 MaterialPageRoute(builder: (context) => Dicas()),
+                //funciona como se fosse uma carta por cima de outra carta, podendo tirar a carta de cima pra voltar à de baixo
               );
             },
           ),
         ],
       ),
 
-      body: ListView.builder( //Corpo da tela: constrói a lista com base nos dados buscados
-
-        itemCount: listaMetas.length, //define o tamanho da lista
+      body: ListView.builder(
+        //Corpo da tela: constrói a lista com base nos dados buscados
+        itemCount: listaMetas.length,
+        //define o tamanho da lista
 
         itemBuilder: (context, i) {
-          Meta meta = listaMetas[i]; //pega a meta correspondente a linha atual
+          //laço de repetição em que, nesse caso, ele vai repetir oq estiver dentro dele até que seja do tamanho da lista
+          Meta meta = listaMetas[i];
+          //pega a meta correspondente a linha atual
           return ListTile(
             leading: Icon(Icons.keyboard_double_arrow_right_sharp),
             title: Text(meta.titulo),
