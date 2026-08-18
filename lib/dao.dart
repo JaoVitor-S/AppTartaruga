@@ -82,4 +82,5 @@ class AppDAO {
     final banco = await db;
     await banco.delete(tablePeriodos, where: 'id = ?', whereArgs: [id]);
   }
+
 }

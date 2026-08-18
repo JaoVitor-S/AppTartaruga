@@ -64,4 +64,5 @@ class PeriodoNaoPerturbe {
       toTime: map['toTime'],
     );
   }
+
 }

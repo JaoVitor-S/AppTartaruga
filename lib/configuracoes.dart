@@ -310,4 +310,5 @@ class FormatadorHora extends TextInputFormatter {
       selection: TextSelection.collapsed(offset: textoFinal.length),
     );
   }
+
 }
