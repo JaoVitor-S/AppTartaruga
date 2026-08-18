@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'configuracoes.dart';
 
 class Perfil extends StatefulWidget {
   const Perfil({super.key});
@@ -20,8 +21,19 @@ class _PerfilState extends State<Perfil> {
         backgroundColor: azul,
         centerTitle: true,
         title: const Text('Perfil', style: TextStyle(color: Colors.white)),
-        actions: const [
-          Padding(padding: EdgeInsets.only(right: 12), child: Icon(Icons.settings, color: Colors.white)),
+        actions: [
+          Padding(
+            padding: const EdgeInsets.only(right: 12),
+            child: IconButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const Configuracoes()),
+                );
+              },
+              icon: const Icon(Icons.settings, color: Colors.white),
+            ),
+          ),
         ],
       ),
       body: Padding(
@@ -32,7 +44,7 @@ class _PerfilState extends State<Perfil> {
               children: [
                 CircleAvatar(
                   radius: 36,
-                  backgroundColor: azul .withOpacity(0.12),
+                  backgroundColor: azul.withOpacity(0.12),
                   child: const Text('J', style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold)),
                 ),
                 const SizedBox(width: 12),
