@@ -6,3 +6,4 @@ import 'configuracoes.dart';
 void main() {
   runApp(MaterialApp(home: Perfil()));
 }
+

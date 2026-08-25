@@ -9,6 +9,8 @@ class PeriodoDao {
     //Consulta
     var listaResult = await db.rawQuery('SELECT * FROM PERIODO;');
 
+    //json é um tipo de arquivo que mostra a coluna e o valor dela.
+
     List<Periodo> lista = [];
     //percorrer a lista de elementos
     for (var json in listaResult) {

@@ -12,7 +12,6 @@ class Configuracoes extends StatefulWidget {
 
 class _ConfiguracoesState extends State<Configuracoes> {
   static const Color azul = Color(0xFF1E3050);
-
   final PeriodoDao _periodoDao = PeriodoDao();
   List<Periodo> periodosNaoPerturbe = [];
   bool isLoading = true;
@@ -39,7 +38,7 @@ class _ConfiguracoesState extends State<Configuracoes> {
       isLoading = false;
     });
   }
-  //Caixa para criar ou editar horários
+/////////////////////Caixa para criar ou editar horários////////////////////////
   Future<void> _abrirDialogoHorarios({Periodo? periodoEditar}) async {
     final TextEditingController inicioCtrl = TextEditingController(
       text: periodoEditar != null ? periodoEditar.horaInicio : '22:00',
@@ -110,6 +109,7 @@ class _ConfiguracoesState extends State<Configuracoes> {
       },
     );
   }
+  //////////////////////////////////////////////////////////////////////////////
 
   @override
   Widget build(BuildContext context) {
@@ -131,6 +131,7 @@ class _ConfiguracoesState extends State<Configuracoes> {
           onPressed: () => Navigator.pop(context),
         ),
       ),
+
       body: ListView(
         padding: const EdgeInsets.all(16),
         children: [
