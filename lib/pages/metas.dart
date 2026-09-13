@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'dicas.dart';
-import '../db/meta_dao.dart';
+import '../api/metas_api.dart';
 import '../domain/meta.dart';
 
 class Metas extends StatefulWidget {
@@ -9,24 +9,16 @@ class Metas extends StatefulWidget {
 }
 
 class _MetasState extends State<Metas> {
-  List<Meta> listaMetas = [];
+  // List<Meta> listaMetas = [];
+  late Future<List<Meta>> futureLista;
 
   @override
   void initState() { //metodo que é executado quando a tela carrega
 
     super.initState();
 
-    loadData(); //chama a funçao pra carregar os dados do banco
-  }
-
-  loadData() async {
-
-    listaMetas = await MetaDao().listarMetas();
-
-    setState(() {});
-    //atualiza os dados da tela
-
-
+    // futureLista = MetaDao().listarMetas();
+    futureLista = MetasApi().listarMetas(); //busca os dados na API fake
   }
 
   @override
@@ -52,29 +44,15 @@ class _MetasState extends State<Metas> {
         ],
       ),
 
-      body: ListView.builder(
-        //Corpo da tela: constrói a lista com base nos dados buscados
-        itemCount: listaMetas.length,
-        //define o tamanho da lista
+      body: FutureBuilder(
+        future: futureLista,
+        builder: (context, snapshot) {
+          if (snapshot.hasData) {
+            List<Meta> listaMetas = snapshot.requireData;
+            return buildListView(listaMetas);
+          }
 
-        itemBuilder: (context, i) {
-          //laço de repetição em que, nesse caso, ele vai repetir oq estiver dentro dele até que seja do tamanho da lista
-          Meta meta = listaMetas[i];
-          //pega a meta correspondente a linha atual
-          return ListTile(
-            leading: Icon(Icons.keyboard_double_arrow_right_sharp),
-            title: Text(meta.titulo),
-            trailing: Row(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                Icon(Icons.check),
-                SizedBox(width: 12),
-                Icon(Icons.edit),
-                SizedBox(width: 12),
-                Icon(Icons.delete),
-              ],
-            ),
-          );
+          return Center(child: CircularProgressIndicator());
         },
       ),
 
@@ -109,6 +87,34 @@ class _MetasState extends State<Metas> {
           ),
         ],
       ),
+    );
+  }
+
+  buildListView(List<Meta> listaMetas) {
+    return ListView.builder(
+      //Corpo da tela: constrói a lista com base nos dados buscados
+      itemCount: listaMetas.length,
+      //define o tamanho da lista
+
+      itemBuilder: (context, i) {
+        //laço de repetição em que, nesse caso, ele vai repetir oq estiver dentro dele até que seja do tamanho da lista
+        Meta meta = listaMetas[i];
+        //pega a meta correspondente a linha atual
+        return ListTile(
+          leading: Icon(Icons.keyboard_double_arrow_right_sharp),
+          title: Text(meta.titulo),
+          trailing: Row(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Icon(Icons.check),
+              SizedBox(width: 12),
+              Icon(Icons.edit),
+              SizedBox(width: 12),
+              Icon(Icons.delete),
+            ],
+          ),
+        );
+      },
     );
   }
 }

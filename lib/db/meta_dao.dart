@@ -14,10 +14,10 @@ class MetaDao {
     //cada chave é um elemednto, cada elemento representa uma linha no banco de dados.
     //cada colchete é uma lista
 
-    List<Meta> listaMetas = []; //começa vazia
+    List<Meta> listaMetas = []; //cria uma lista vazia
     for (var json in listaResult) {
 
-      Meta meta = Meta.fromJson(json); //cria a propriedade usando o construtor nomeado
+      Meta meta = Meta.fromJson(json);
 
       //toda vez ele vai pegar um elemento do json, converte ele pra meta, e adiciona essa meta na lista de metas
       listaMetas.add(meta);
