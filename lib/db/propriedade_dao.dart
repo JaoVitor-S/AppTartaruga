@@ -1,4 +1,4 @@
-import 'package:assistentemovel/db/db_helper.dart';
+import 'package:assistentemovel/db/db_helper.dart' show DbHelper;
 import 'package:assistentemovel/domain/propriedade.dart';
 import 'package:sqflite/sqflite.dart';
 
