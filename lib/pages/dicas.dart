@@ -225,12 +225,12 @@ class _DicasState extends State<Dicas> {
                   SizedBox(height: 50),
                   Card(
                     child: Padding(
-                      padding: EdgeInsets.all(12),
+                      padding: EdgeInsets.all(14),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            'Artigo aleatório da Wikipédia',
+                            '"Conhecimento é Poder" - Curiosidades',
                             style: TextStyle(
                               fontWeight: FontWeight.bold,
                             ),
@@ -241,9 +241,18 @@ class _DicasState extends State<Dicas> {
                             builder: (context, snapshot) {
                               if (snapshot.hasData) {
                                 CuriosidadeWikipedia curiosidade = snapshot.requireData;
-                                return Text(curiosidade.texto);
+                                return Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text(
+                                      curiosidade.titulo,
+                                      style: TextStyle(fontWeight: FontWeight.bold),
+                                    ),
+                                    SizedBox(height: 4),
+                                    Text(curiosidade.texto),
+                                  ],
+                                );
                               }
-
                               return Center(child: CircularProgressIndicator());
                             },
                           ),

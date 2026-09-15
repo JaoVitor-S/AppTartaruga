@@ -17,7 +17,6 @@ class _MetasState extends State<Metas> {
 
     super.initState();
 
-    // futureLista = MetaDao().listarMetas();
     futureLista = MetasApi().listarMetas(); //busca os dados na API fake
   }
 
@@ -92,7 +91,7 @@ class _MetasState extends State<Metas> {
 
   buildListView(List<Meta> listaMetas) {
     return ListView.builder(
-      //Corpo da tela: constrói a lista com base nos dados buscados
+      //constroi a lista com base nos dados buscados
       itemCount: listaMetas.length,
       //define o tamanho da lista
 
