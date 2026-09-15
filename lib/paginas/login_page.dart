@@ -90,7 +90,7 @@ class _LoginPageState extends State<LoginPage> {
     String username = userController.text;
     String password = passwordController.text;
 
-    // AQUI CONSOME A API FAKE:
+    //api fake
     bool isAuth = await UserApi().login(username, password);
 
     if (isAuth) {
@@ -103,6 +103,7 @@ class _LoginPageState extends State<LoginPage> {
         ),
       );
       prefs.setUserStatus(true);
+      prefs.setUsername(username);
     } else {
       print('Usuario e/ou senha incorretos');
     }

@@ -11,4 +11,16 @@ class SharedPrefs {
     bool? status = prefs.getBool('USER');
     return status ?? false;
   }
+
+  //guarda o username de quem fez login, para sabermos qual usuario exibir depois
+  Future<void> setUsername(String username) async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    prefs.setString('USERNAME', username);
+  }
+
+  Future<String> getUsername() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    String? username = prefs.getString('USERNAME');
+    return username ?? '';
+  }
 }

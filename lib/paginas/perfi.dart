@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:assistentemovel/api/github_api.dart';
+import 'package:assistentemovel/api/user_api.dart';
 import 'package:assistentemovel/dominios/github_user.dart';
+import 'package:assistentemovel/dominios/user.dart';
+import 'package:assistentemovel/db/shared_prefs.dart';
 import 'configuracoes.dart';
+import 'login_page.dart';
 
 class Perfil extends StatefulWidget {
   const Perfil({super.key});
@@ -14,14 +18,31 @@ class _PerfilState extends State<Perfil> {
   static const Color azul = Color(0xFF1E3050);
   int currentIndex = 3;
 
-  // COLOQUE SEU USUÁRIO DO GITHUB AQUI:
-  final String githubUsername = 'euDavi01';
+  SharedPrefs prefs = SharedPrefs();
+
+  //nome do usuario do github:
+  final String githubUsername = 'JaoVitor-S';
   late Future<GithubUser> futureUser;
+
+  //usuario da API Fake que fez o login
+  late Future<User> futureFakeUser;
 
   @override
   void initState() {
     super.initState();
     futureUser = GithubApi().buscarUsuario(githubUsername);
+    futureFakeUser = _carregarUsuarioLogado();
+  }
+
+  //pega o username salvo no login e procura ele dentro da lista da API Fake
+  Future<User> _carregarUsuarioLogado() async {
+    String username = await prefs.getUsername();
+    List<User> usuarios = await UserApi().buscarUsuarios();
+
+    return usuarios.firstWhere(
+          (u) => u.username == username,
+      orElse: () => usuarios.first,
+    );
   }
 
   @override
@@ -34,7 +55,7 @@ class _PerfilState extends State<Perfil> {
         title: const Text('Perfil', style: TextStyle(color: Colors.white)),
         actions: [
           Padding(
-            padding: const EdgeInsets.only(right: 12),
+            padding: const EdgeInsets.only(right: 4),
             child: IconButton(
               onPressed: () {
                 Navigator.push(
@@ -43,6 +64,13 @@ class _PerfilState extends State<Perfil> {
                 );
               },
               icon: const Icon(Icons.settings, color: Colors.white),
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.only(right: 12),
+            child: IconButton(
+              onPressed: logout,
+              icon: const Icon(Icons.logout, color: Colors.white),
             ),
           ),
         ],
@@ -66,7 +94,7 @@ class _PerfilState extends State<Perfil> {
 
           final user = snapshot.data!;
 
-          return Padding(
+          return SingleChildScrollView(
             padding: const EdgeInsets.all(16),
             child: Column(
               children: [
@@ -89,6 +117,11 @@ class _PerfilState extends State<Perfil> {
                           Text(
                             '@${user.login}',
                             style: const TextStyle(fontSize: 13, color: Colors.grey),
+                          ),
+                          const SizedBox(height: 4),
+                          Text(
+                            user.bio,
+                            style: const TextStyle(fontSize: 12),
                           ),
                         ],
                       ),
@@ -119,6 +152,56 @@ class _PerfilState extends State<Perfil> {
                   ],
                 ),
                 const SizedBox(height: 16),
+
+                //bloco com os dados vindos da api fake
+                const Align(
+                  alignment: Alignment.centerLeft,
+                  child: Text('Usuário (API Fake)', style: TextStyle(fontWeight: FontWeight.bold)),
+                ),
+                const SizedBox(height: 8),
+                FutureBuilder<User>(
+                  future: futureFakeUser,
+                  builder: (context, snapshotFake) {
+                    if (snapshotFake.connectionState == ConnectionState.waiting) {
+                      return const Center(child: CircularProgressIndicator(color: azul));
+                    }
+
+                    if (snapshotFake.hasError || !snapshotFake.hasData) {
+                      return Text(
+                        'Erro ao carregar usuário da API Fake.',
+                        style: TextStyle(color: Colors.red.shade700),
+                      );
+                    }
+
+                    final fakeUser = snapshotFake.data!;
+
+                    return Container(
+                      width: double.infinity,
+                      padding: const EdgeInsets.all(12),
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(10),
+                        border: Border.all(color: Colors.grey.shade200),
+                      ),
+                      child: Row(
+                        children: [
+                          const Icon(Icons.verified_user, color: azul),
+                          const SizedBox(width: 10),
+                          Expanded(
+                            child: Text(
+                              fakeUser.username,
+                              style: const TextStyle(fontWeight: FontWeight.w600),
+                            ),
+                          ),
+                        ],
+                      ),
+                    );
+                  },
+                ),
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+                const SizedBox(height: 16),
                 const Align(
                   alignment: Alignment.centerLeft,
                   child: Text('Dias sem atrasos', style: TextStyle(fontWeight: FontWeight.bold)),
@@ -141,7 +224,6 @@ class _PerfilState extends State<Perfil> {
                     valueColor: const AlwaysStoppedAnimation<Color>(azul),
                   ),
                 ),
-                const Spacer(),
               ],
             ),
           );
@@ -158,6 +240,20 @@ class _PerfilState extends State<Perfil> {
           BottomNavigationBarItem(icon: Icon(Icons.group_outlined), activeIcon: Icon(Icons.group), label: 'Grupos'),
           BottomNavigationBarItem(icon: Icon(Icons.person_outline), activeIcon: Icon(Icons.person), label: 'Perfil'),
         ],
+      ),
+    );
+  }
+
+  logout() async {
+    await prefs.setUserStatus(false);
+    await prefs.setUsername('');
+
+    Navigator.pushReplacement(
+      context,
+      MaterialPageRoute(
+        builder: (context) {
+          return LoginPage();
+        },
       ),
     );
   }

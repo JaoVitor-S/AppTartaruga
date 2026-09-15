@@ -4,7 +4,6 @@ class User {
 
   User(this.username, this.password);
 
-  // Construtor nomeado seguindo o padrão do professor
   User.fromJson(Map<String, dynamic> json) {
     username = json["username"];
     password = json["password"];

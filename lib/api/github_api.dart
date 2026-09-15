@@ -11,7 +11,7 @@ class GithubApi {
       if (response.statusCode == 200) {
         return GithubUser.fromJson(response.data);
       }
-      throw Exception('Usuário não encontrado');
+      throw Exception('Usuario não encontrado');
     } catch (e) {
       throw Exception('Erro ao carregar dados do GitHub: $e');
     }
