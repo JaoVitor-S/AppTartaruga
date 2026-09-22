@@ -230,7 +230,7 @@ class _DicasState extends State<Dicas> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            '"Conhecimento é Poder" - Curiosidades',
+                            'Curiosidades',
                             style: TextStyle(
                               fontWeight: FontWeight.bold,
                             ),
