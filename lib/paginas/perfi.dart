@@ -75,6 +75,7 @@ class _PerfilState extends State<Perfil> {
           ),
         ],
       ),
+
       body: FutureBuilder<GithubUser>(
         future: futureUser,
         builder: (context, snapshot) {
@@ -85,7 +86,7 @@ class _PerfilState extends State<Perfil> {
           if (snapshot.hasError) {
             return Center(
               child: Text(
-                'Erro ao carregar dados do GitHub.\nVerifique seu usuário.',
+                'erro ao carregar dados do GitHub.\nverifique seu usuario.',
                 textAlign: TextAlign.center,
                 style: TextStyle(color: Colors.red.shade700),
               ),
@@ -156,7 +157,7 @@ class _PerfilState extends State<Perfil> {
                 //bloco com os dados vindos da api fake
                 const Align(
                   alignment: Alignment.centerLeft,
-                  child: Text('Usuário (API Fake)', style: TextStyle(fontWeight: FontWeight.bold)),
+                  child: Text('usuario (API Fake)', style: TextStyle(fontWeight: FontWeight.bold)),
                 ),
                 const SizedBox(height: 8),
                 FutureBuilder<User>(
@@ -168,7 +169,7 @@ class _PerfilState extends State<Perfil> {
 
                     if (snapshotFake.hasError || !snapshotFake.hasData) {
                       return Text(
-                        'Erro ao carregar usuário da API Fake.',
+                        'Erro ao carregar usuario da API Fake.',
                         style: TextStyle(color: Colors.red.shade700),
                       );
                     }

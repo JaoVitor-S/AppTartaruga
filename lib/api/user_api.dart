@@ -9,7 +9,7 @@ class UserApi {
 
   Future<bool> login(String username, String password) async {
     try {
-      //vai buscar os usuarios no link da sua API
+      //vai buscar os usuarios no link da API
       final response = await dio.get(_url);
 
       if (response.statusCode == 200) {
@@ -21,7 +21,7 @@ class UserApi {
           listaUsuarios.add(user);
         }
 
-        //verificaçao
+        //comparaçao
         for (User u in listaUsuarios) {
           if (u.username == username && u.password == password) {
             return true; //achou e a senha esta certa
@@ -30,7 +30,7 @@ class UserApi {
       }
       return false; //nao achou ou senha errada
     } catch (e) {
-      print('Erro na API: $e');
+      print('erro na API: $e');
       return false;
     }
   }
