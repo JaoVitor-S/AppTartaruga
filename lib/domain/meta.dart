@@ -8,7 +8,7 @@ class Meta{
     required this.id,
     required this.titulo,
     required this.concluida,
-    //required indica que é obrigatório fornecer o dado pra criação do objeto, caso contrário, dará erro
+    //required diz que é obrigatório fornecer o dado pra criação do objeto, caso contrário, dará erro
 });
 
   Meta.fromJson(Map<String, dynamic>json){

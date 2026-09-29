@@ -6,9 +6,6 @@ class WikipediaApi {
 
   final dio = Dio();
 
-  //dio é a ferramente que vai fazer conexão com a internet
-  //e o final diz pro dart que esse dio vai ser usado sempre no código
-  //sem precisar ficar criando outro, ele sempre vai usar esse
 
   final baseUrl = 'https://pt.wikipedia.org/api/rest_v1/page/random/summary';
   //guarda o endereço da api que vamos chamar
