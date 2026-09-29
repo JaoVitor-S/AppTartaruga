@@ -1,8 +1,8 @@
 class Meta{
   late int id;
   late String titulo;
-  late int concluida; //1-tarefa feita 0-tarefa nao concluida.
-//late significa que a variável não recebe um valor no momento que foi criada, mas recebe depois
+  late int concluida;
+
 
   Meta({
     required this.id,
@@ -15,7 +15,7 @@ class Meta{
     id = json['id'];
     titulo = json['titulo'];
     concluida = json['concluida'];
-    //funciona como se ele pegasse o dado cru do banco de dados (ex: json['id']) e converte para uma variável mais 'comum' e facil de manusear
+    //funciona como se ele pegasse o dado cru da api (ex: json['id']) e converte para uma variável mais 'comum' e facil de manusear
 
   }
 }

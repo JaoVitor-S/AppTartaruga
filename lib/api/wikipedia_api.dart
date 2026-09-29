@@ -14,7 +14,7 @@ class WikipediaApi {
     late CuriosidadeWikipedia curiosidade;
 
     final response = await dio.get(baseUrl);
-    //é o comando que faz a requisição, pelo endereço que foi colocada la em cima
+
 
     if (response.statusCode == 200) {
       //statuscode serve para verificar como está o servidor
