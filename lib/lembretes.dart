@@ -5,6 +5,7 @@ import 'editlembretes.dart';
 import 'adclembretes.dart';
 import 'quote.dart';
 import 'quote_api.dart';
+import 'lembretes_api.dart';
 
 class Lembretes extends StatefulWidget {
   const Lembretes({super.key});
@@ -21,12 +22,11 @@ class _LembretesState extends State<Lembretes> {
   void initState() {
     super.initState();
     loadData();
-
     futureFrase = QuoteApi().buscarFraseMotivacional();
   }
-
+  //carregar dados da fakeapi
   loadData() async {
-    listaLembretes = await LembreteDao().listarLembretes();
+    listaLembretes = await LembretesApi().listarLembretes();
     setState(() {});
   }
 
@@ -45,8 +45,6 @@ class _LembretesState extends State<Lembretes> {
         padding: const EdgeInsets.all(16),
         child: Column(
           children: [
-
-
             FutureBuilder<Quote>(
               future: futureFrase,
               builder: (context, snapshot) {
@@ -58,7 +56,6 @@ class _LembretesState extends State<Lembretes> {
                     ),
                   );
                 }
-
 
                 if (snapshot.hasError) {
                   return Card(
@@ -72,7 +69,6 @@ class _LembretesState extends State<Lembretes> {
                     ),
                   );
                 }
-
 
                 if (snapshot.hasData) {
                   final quote = snapshot.data!;
@@ -125,13 +121,10 @@ class _LembretesState extends State<Lembretes> {
                   );
                 }
 
-
                 return const SizedBox.shrink();
               },
             ),
             const SizedBox(height: 16),
-
-
             Expanded(
               child: ListView.builder(
                 itemCount: listaLembretes.length,
@@ -157,9 +150,10 @@ class _LembretesState extends State<Lembretes> {
                           ),
                           IconButton(
                             icon: const Icon(Icons.delete, color: Colors.red),
-                            onPressed: () async {
-                              await LembreteDao().deletarLembrete(lembrete.id!);
-                              loadData();
+                            onPressed: () {
+                              setState(() {
+                                listaLembretes.removeAt(i);
+                              });
                             },
                           ),
                         ],
